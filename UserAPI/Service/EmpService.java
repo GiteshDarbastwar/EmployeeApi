@@ -82,7 +82,7 @@ public class EmpService {
             throw new ValidationException("Salary cannot be null");
        }
    }
-//
+
     public List<Employee> getAllEmployee() {
         List<Employee> allEmployee = empRepo.findAll();
         if (allEmployee.isEmpty()) {
