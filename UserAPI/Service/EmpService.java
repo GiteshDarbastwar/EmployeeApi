@@ -42,12 +42,52 @@ public class EmpService {
         if (employee.getEmail() == null || !employee.getEmail().matches(emailRegex)) {
             throw new ValidationException("Invalid email ID");
         }
-    }
 
+         if (employee.getEName() == null ) {
+            throw new ValidationException("Employee name cannot be null or empty");
+          }
+
+
+//        if (employee.getEmail() == null || !employee.getEmail().matches(emailRegex)) {
+//            throw new ValidationException("Invalid email ID");
+//        }
+//
+        if (employee.getRole() == null || employee.getRole().isEmpty()) {
+            throw new ValidationException("Role cannot be null or empty");
+        }
+
+
+        if (employee.getCompany() == null || employee.getCompany().isEmpty()) {
+            throw new ValidationException("Company cannot be null or empty");
+        }
+
+
+//
+//        if (employee.getMobileNo() == null || !employee.getMobileNo().matches(mobileRegex)) {
+//            throw new ValidationException("Invalid mobile number");
+//        }
+//
+        if (employee.getLocation() == null || employee.getLocation().isEmpty()) {
+            throw new ValidationException("Location cannot be null or empty");
+        }
+
+
+        if (employee.getExperience() == null ) {
+            throw new ValidationException("Experience cannot be null");
+        }
+
+
+
+        if (employee.getSalary() == null ) {
+            throw new ValidationException("Salary cannot be null");
+       }
+   }
+//
     public List<Employee> getAllEmployee() {
         List<Employee> allEmployee = empRepo.findAll();
         if (allEmployee.isEmpty()) {
-            throw new DataNotFoundException("Data Not Found");
+            throw new DataNotFoundException("Data Not Found");//        }
+
         }
         return allEmployee;
     }
